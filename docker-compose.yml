@@ -7,7 +7,7 @@ services:
       - ./backend/mongo-data:/data/db
     restart: always
     expose:
-      - "27017"
+      - 127.0.0.1:27017:27012
     environment:
       - MONGO_DB:pwndoc
     networks:
@@ -23,8 +23,8 @@ services:
     depends_on:
       - mongodb
     restart: always
-    expose:
-      - "4242"
+    ports:
+      - 4242:4242
     links:
       - mongodb
     networks: 
